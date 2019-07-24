@@ -44,7 +44,7 @@ function object_destructuring() {
     // console.log(a);
     // console.log(b);
 
-    let { a, ...passthrough } = o;
+    let { a, ...passthrough } = o; //passthrough代表所有剩余变量
     let total = passthrough.b + passthrough.c.length;
     console.log(a);
     console.log(total);
@@ -53,4 +53,16 @@ function object_destructuring() {
     let { a: newName1, b: newName2 } = o;
     console.log(newName1);
     console.log(newName2);
+
+    //指定a,b的类型。
+    // let {a, b}: {a: string, b: number} = o;
+    // console.log(">>" + a);
+    // console.log(b);
+
+    //函数声明
+    type C = { a: string, b?: number }
+    function f({ a, b }: C): void {
+        // ...
+    }
+
 }
