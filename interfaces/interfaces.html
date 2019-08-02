@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="text/javascript" src="interfaces-start.js"></script>
+    <script type="text/javascript" src="optional-properties.js"></script>
+    <script type="text/javascript" src="funtion-type.js"></script>
+    <script type="text/javascript" src="indexable-type.js"></script>
 </head>
 <body>
 <button onclick="printLabeTest()">接口初探</button>
 <p></p>
 <button onclick="printLabel1Test()">改造接口</button>
+
+<p>------------------------------</p>
+<!--各种请求方式-->
+<!--<button onclick="test1()">可选属性</button>-->
+<button onclick="test1({color: 'yellow'})">可选属性</button>
+<!--<button onclick="test1({width: 20})">可选属性</button>-->
+<!--<button onclick="test1({color: 'yellow', width: 20})">可选属性</button>-->
+<!--<button onclick="test1({color: 'green', width: 30})">可选属性</button>-->
+
+<p></p>
+<button onclick="mySearch('abc', 'bc')">函数类型接口</button>
+<!--<button onclick="mySearch('abc', 'bcw')">函数类型接口</button>-->
+
+<p></p>
+<button onclick="test1()">可索引类型接口</button>
 </body>
 </html>
