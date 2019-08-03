@@ -31,3 +31,22 @@ interface NotOkay {
     [x: number]: Dog; //数字索引的返回值必须是字符串索引返回值类型的子类型
     [x: string]: Animal;
 }
+
+//------------------------------
+// interface NumberDictionary {
+//     [index: string]: number;
+//     length: number;    // ok, length is a number
+//     name: string;      // error, the type of 'name' is not a subtype of the indexer
+// }
+
+// interface NumberOrStringDictionary {
+//     [index: string]: number | string;
+//     length: number;    // ok, length is a number
+//     name: string;      // ok, name is a string
+// }
+
+// interface ReadonlyStringArray {
+// //     readonly [index: number]: string;
+// // }
+// // let myArray: ReadonlyStringArray = ["Alice", "Bob"];
+// // myArray[2] = "Mallory"; // error! //只读的，不可赋值
