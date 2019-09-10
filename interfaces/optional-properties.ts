@@ -1,3 +1,6 @@
+//接口可选参数学习。
+
+
 interface SquareConfig {
     color?: string; //问号，避免空指针异常。可选参数
     width?: number;
