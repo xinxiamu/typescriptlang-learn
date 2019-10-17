@@ -13,11 +13,11 @@ class Greeter {
 }
 
 
-// function showGreeter() {
-//
-//     //构造类的对象
-//     let greeter = new Greeter("world");
-//
-//     alert(this.greeter.greeting);
-//     alert(this.greeter)
-// }
+function showGreeter() {
+
+    //构造类的对象
+    let greeter = new Greeter("world");
+
+    alert(greeter.greet());
+    alert(greeter.greeting)
+}
