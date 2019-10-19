@@ -6,7 +6,7 @@
 //当类的成员被指定为私有private时候，该成员在类外部无法访问。
 
 class Animal { //动物类
-    name: string;
+    name: string; //默认是public
 
     constructor(theName: string) { //构造函数
         this.name = theName;
@@ -68,3 +68,83 @@ function testAnimal(snakeName: string, horseName: string) {
     snake.move(10);
     horse.move(50);
 }
+
+//===============
+//当成员被标记成 private时，它就不能在声明它的类的外部访问。
+/*class Animal {
+    private name: string;
+    constructor(theName: string) { this.name = theName; }
+}
+
+new Animal("Cat").name; // 错误: 'name' 是私有的.*/
+
+/////=========
+
+/*class Animal {
+    private name: string;
+    constructor(theName: string) { this.name = theName; }
+}
+
+class Rhino extends Animal {
+    constructor() { super("Rhino"); }
+}
+
+class Employee {
+    private name: string;
+    constructor(theName: string) { this.name = theName; }
+}
+
+let animal = new Animal("Goat");
+let rhino = new Rhino();
+let employee = new Employee("Bob");
+
+animal = rhino; //认为是同一类，所以兼容的
+animal = employee; // 错误: Animal 与 Employee 不兼容.*/
+
+//===============理解 protected
+// protected成员在派生类中仍然可以访问。
+/*class Person {
+    protected name: string;
+    constructor(name: string) { this.name = name; }
+}
+
+class Employee extends Person {
+    private department: string;
+
+    constructor(name: string, department: string) {
+        super(name)
+        this.department = department;
+    }
+
+    public getElevatorPitch() {
+        return `Hello, my name is ${this.name} and I work in ${this.department}.`;
+    }
+}
+
+let howard = new Employee("Howard", "Sales");
+console.log(howard.getElevatorPitch());
+console.log(howard.name); // 错误*/
+
+//=======构造函数也可以被标记成 protected。 这意味着这个类不能在包含它的类外被实例化，但是能被继承。比如，
+
+/*class Person {
+    protected name: string;
+    protected constructor(theName: string) { this.name = theName; }
+}
+
+// Employee 能够继承 Person
+class Employee extends Person {
+    private department: string;
+
+    constructor(name: string, department: string) {
+        super(name);
+        this.department = department;
+    }
+
+    public getElevatorPitch() {
+        return `Hello, my name is ${this.name} and I work in ${this.department}.`;
+    }
+}
+
+let howard = new Employee("Howard", "Sales");
+let john = new Person("John"); // 错误: 'Person' 的构造函数是被保护的.*/
