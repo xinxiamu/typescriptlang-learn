@@ -6,7 +6,7 @@ class Grid {
     static origin = {x: 0, y: 0};
     calculateDistanceFromOrigin(point: {x: number; y: number;}) {
         // debugger;
-        let xDist = (point.x - Grid.origin.x);
+        let xDist = (point.x - Grid.origin.x);//引用静态属性
         let yDist = (point.y - Grid.origin.y);
         return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
     }
