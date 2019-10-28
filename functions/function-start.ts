@@ -23,10 +23,17 @@ let myAdd2: (baseValue: number, increment: number) => number =
     function(x: number, y: number): number { return x + y; };
 //只要参数类型是匹配的，那么就认为它是有效的函数类型，而不在乎参数名是否正确。
 
-
+//========类型推断
+//指定具体类型
+let myAdd3 = function(x: number, y: number): number { return x + y; };
+//x，y不指定类型，根据上下文，自动推断
+let myAdd4: (baseValue: number, increment: number) => number =
+    function(x, y) { return x + y; };
 
 function showFunction() {
     console.log(myAdd1(1,2));
     console.log(myAdd2(3,4));
+    console.log(myAdd4(3,4));
+    // console.log(myAdd4(3,"dd")); //错误
 }
 
