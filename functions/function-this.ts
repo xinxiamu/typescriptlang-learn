@@ -77,6 +77,43 @@ function fucnThisTest1() {
     alert("card: " + pickedCard.card + " of " + pickedCard.suit);
 }
 
+//==========this参数在回调函数里, 迷糊，没整明白
+interface UIElement {
+    addClickListener(onclick: (this: void, e: Event) => void): void;
+}
+
+/*class Handler {
+    info: string;
+    onClickBad(this: Handler, e: string) {
+        // oops, used this here. using this callback would crash at runtime
+        this.info = e;
+    }
+}
+let h = new Handler();
+uiElement.addClickListener(h.onClickBad); // error!*/
+
+//指定了this类型后，你显式声明onClickBad必须在Handler的实例上调用。 然后TypeScript会检测到 addClickListener要求函数带有this: void。 改变 this类型来修复这个错误：
+
+/*class Handler {
+    info: string;
+    onClickGood(this: void, e: Event) {
+        // can't use this here because it's of type void!
+        console.log('clicked!');
+    }
+}*/
+
+//因为onClickGood指定了this类型为void，因此传递addClickListener是合法的。 当然了，这也意味着不能使用 this.info. 如果你两者都想要，你不得不使用箭头函数了：
+
+class Handler {
+    info: string;
+    onClickGood = (e: string) => { this.info = e }
+}
+
+let h = new Handler();
+let uiElement;
+uiElement.addClickListener(h.onClickGood);
+
+//这是可行的因为箭头函数不会捕获this，所以你总是可以把它们传给期望this: void的函数。 缺点是每个 Handler对象都会创建一个箭头函数。 另一方面，方法只会被创建一次，添加到 Handler的原型链上。 它们在不同 Handler对象间是共享的。
 
 
 
