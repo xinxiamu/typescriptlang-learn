@@ -24,8 +24,10 @@ interface Callback<R> {
 
 class Apis {
 
+    // @ts-ignore
     private callback: Callback;
 
+    // @ts-ignore
     handle(callback: Callback): Apis {
         this.callback = callback;
         return this;
@@ -46,7 +48,9 @@ class Apis {
 
 function testCallback() {
     let apis = new Apis();
-    apis.handle(new class implements Callback {
+    apis.handle(new
+    // @ts-ignore
+    class implements Callback {
         deal(data: any): void {
             alert(">>>>>>" + data);
         }
