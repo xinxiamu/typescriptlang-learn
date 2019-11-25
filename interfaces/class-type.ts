@@ -11,28 +11,28 @@
 // }
 
 //=========实现接口
-// interface ClockInterface {
-//     currentTime: Date; //接口属性
-//     setTime(d: Date): void; //接口方法
-// }
-// class Clock implements ClockInterface {
-//     currentTime: Date;
-//     //实现方法
-//     setTime(d: Date) {
-//         this.currentTime = d;
-//     }
-//
-//     show() {
-//         alert(this.currentTime);
-//     };
-//
-//     constructor(h: number, m: number) { }
-// }
-// let clock: Clock = new Clock(2,3);
-// function class_type_test() {
-//     clock.setTime(new Date());
-//     clock.show();
-// }
+interface ClockInterface {
+    currentTime: Date; //接口属性
+    setTime(d: Date): void; //接口方法
+}
+class Clock implements ClockInterface {
+    currentTime: Date;
+    //实现方法
+    setTime(d: Date) {
+        this.currentTime = d;
+    }
+
+    show() {
+        alert(this.currentTime);
+    };
+
+    constructor(h: number, m: number) { }
+}
+let clock: Clock = new Clock(2,3);
+function class_type_test() {
+    clock.setTime(new Date());
+    clock.show();
+}
 
 //=========类静态部分与实例部分的区别===========//
 
