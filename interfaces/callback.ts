@@ -53,6 +53,7 @@ function testCallback() {
     class implements Callback {
         deal(data: any): void {
             alert(">>>>>>" + data);
+
         }
 
         error(): void {
@@ -65,7 +66,7 @@ function testCallback() {
         }
     }).get('>>abc');
 
-    apis.handle(
+    /*apis.handle(
         {
             deal(data: any): void {
                 alert(">>>>>>" + data);
@@ -78,5 +79,5 @@ function testCallback() {
             }
 
         }
-    ).get('====dsfsdf');
+    ).get('====dsfsdf');*/
 }
